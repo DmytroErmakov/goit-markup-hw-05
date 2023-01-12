@@ -76,12 +76,16 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--main-color);
-  transition: color var 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .current {
   position: relative;
   
+}
+
+.underline {
+  color: var(--fifth-color);
 }
 
 .underline::after {
@@ -93,6 +97,7 @@ body {
   display: block;
   width: 100%;
   height: 4px;
+  color: var(--fifth-color);
   background-color: var(--fifth-color);
   border-radius: 2px;
 
@@ -167,8 +172,9 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-color: var(--third-color);
   border-radius: 4px;
+  border: none;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:hover,
@@ -607,7 +613,7 @@ body {
 
 .library-item:hover .library-item-wrap, .library-item:focus .library-item-wrap {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
-  
+
 }
 
 .library-thumb {
@@ -621,7 +627,7 @@ body {
   display: inline-block;
   width: 100%;
   height: 100%;
-  background-color: var(--third-color);
+  /* background-color: var(--third-color); */
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -642,10 +648,13 @@ body {
   padding-left: 32px;
   width: 360px;
   
+  background-color: var(--third-color);
   color: var(--second-background-color);
-  /* opacity: 0; */
+
+  opacity: 0;
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .library-item-text {
@@ -762,6 +771,13 @@ a {
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.8);
+
+
 }
 
 .modal {
@@ -769,7 +785,7 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  
 
   min-width: 408px;
   min-height: 576px;
@@ -777,7 +793,8 @@ a {
   background: var(--nine-color);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-window {
